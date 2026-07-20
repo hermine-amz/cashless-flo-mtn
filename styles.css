@@ -684,7 +684,7 @@ body {
   text-decoration: underline;
 }
 
-/* Bouton Flottant Bas de Page (Floating Circular Badge) */
+/* Bouton Flottant Bas de Page (Floating Circular Glassmorphism Badge) */
 .floating-website-btn {
   position: fixed;
   bottom: 24px;
@@ -693,9 +693,11 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #0f172a;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.18), 0 4px 10px -2px rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 10px 30px -5px rgba(42, 126, 255, 0.28), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -712,19 +714,18 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 2px;
+  gap: 1px;
 }
 
 .floating-btn-logo {
-  height: 24px;
+  height: 32px;
   width: auto;
-  max-width: 65px;
   object-fit: contain;
 }
 
 .floating-btn-text {
   font-family: var(--font-heading);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.15;
   color: var(--text-main);
@@ -732,10 +733,10 @@ body {
 }
 
 .floating-website-btn:hover {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
   transform: scale(1.08) translateY(-3px);
-  border-color: var(--primary);
-  box-shadow: 0 14px 30px -5px rgba(42, 126, 255, 0.3);
+  border-color: var(--primary-hover);
+  box-shadow: 0 14px 34px -5px rgba(42, 126, 255, 0.4);
 }
 
 .floating-website-btn:hover .floating-btn-text {
@@ -755,11 +756,22 @@ body {
   }
   
   .floating-btn-logo {
-    height: 20px;
+    height: 26px;
   }
   
   .floating-btn-text {
-    font-size: 9.5px;
+    font-size: 9px;
+  }
+
+  /* Font-size 16px on mobile inputs to prevent automatic browser zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select,
+  .form-input,
+  .iti input.form-input {
+    font-size: 16px !important;
   }
 }
 

@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     iti = window.intlTelInput(phoneInput, {
       initialCountry: 'bj', // Bénin par défaut !
       separateDialCode: true,
-      onlyCountries: ['bj', 'tg', 'ci', 'sn', 'bf', 'ne', 'ml', 'cm', 'ga', 'gn', 'cg', 'cd', 'mg', 'fr', 'ca', 'us', 'gb', 'ng', 'gh'],
       preferredCountries: ['bj', 'tg', 'ci', 'sn', 'bf', 'ne', 'cm', 'fr'],
       autoPlaceholder: 'aggressive',
       i18n: frI18n,
