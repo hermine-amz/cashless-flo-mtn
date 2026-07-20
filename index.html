@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashless Flo - Formulaire de Contact</title>
+  <meta name="description" content="Laissez vos coordonnées pour entrer en contact avec l'équipe Cashless Flo.">
+  
+  <!-- Fonts Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon officiel "flo" transparent -->
+  <link rel="icon" type="image/png" href="favicon.png?v=3">
+
+  <!-- intl-tel-input CSS pour la validation officielle internationale des numéros -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Fond décoratif -->
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- En-tête principal avec le logo officiel sans fond -->
+    <header class="header">
+      <a href="https://cashlessflo.com/fr" target="_blank" rel="noopener" class="brand-logo-link">
+        <img src="logo.png" alt="Cashless Flo" class="brand-logo-img">
+      </a>
+    </header>
+
+    <!-- Carte Principale du Formulaire -->
+    <main class="main-card">
+      <!-- Section Présentation -->
+      <section class="hero-section">
+        <h1 class="hero-title">Contactez notre équipe</h1>
+        <p class="hero-description">
+          Remplissez le formulaire ci-dessous pour être recontacté par l'un de nos conseillers.
+        </p>
+      </section>
+
+      <!-- Formulaire de Contact -->
+      <form id="leadForm" class="contact-form" novalidate>
+        
+        <!-- Field 1: Nom & Prénom (Obligatoire) -->
+        <div class="form-group">
+          <label for="fullName" class="form-label">
+            Nom & Prénom <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-input" 
+              placeholder="Ex: Jean Dupont" 
+              required
+            >
+          </div>
+          <span class="error-message" id="fullNameError">Veuillez saisir votre nom et prénom.</span>
+        </div>
+
+        <!-- Field 2: Adresse E-mail (Obligatoire) -->
+        <div class="form-group">
+          <label for="email" class="form-label">
+            Adresse e-mail <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="Ex: j.dupont@entreprise.com" 
+              required
+            >
+          </div>
+          <span class="error-message" id="emailError">Veuillez saisir une adresse e-mail valide.</span>
+        </div>
+
+        <!-- Field 3: Téléphone / WhatsApp (Obligatoire) -->
+        <div class="form-group">
+          <label for="phone" class="form-label">
+            Numéro de téléphone / WhatsApp <span class="required-star">*</span>
+          </label>
+          <div class="phone-input-container">
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              class="form-input" 
+              required
+            >
+          </div>
+          <span class="error-message" id="phoneError">Veuillez saisir un numéro de téléphone valide.</span>
+        </div>
+
+        <!-- Field 4: Nom de l'entreprise (Obligatoire) -->
+        <div class="form-group">
+          <label for="company" class="form-label">
+            Nom de l'entreprise <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <input 
+              type="text" 
+              id="company" 
+              name="company" 
+              class="form-input" 
+              placeholder="Ex: Acme Africa" 
+              required
+            >
+          </div>
+          <span class="error-message" id="companyError">Veuillez indiquer le nom de votre entreprise.</span>
+        </div>
+
+        <!-- Field 5: Taille de l'équipe (Optionnel - Custom Menu) -->
+        <div class="form-group">
+          <label for="teamSizeTrigger" class="form-label">
+            Taille de l'équipe <span class="text-optional">(optionnel)</span>
+          </label>
+          
+          <div class="custom-select-container" id="teamSizeContainer">
+            <button type="button" class="custom-select-trigger" id="teamSizeTrigger">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M7 23v-2a4 4 0 0 1 3-3.87"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span class="custom-select-label" id="selectedTeamSizeLabel">Sélectionnez la taille de l'équipe</span>
+              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            <div class="custom-select-dropdown hidden" id="teamSizeDropdown">
+              <div class="custom-option" data-value="1-10">
+                <span>Moins de 10 personnes</span>
+                <svg class="check-icon hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="custom-option" data-value="10-50">
+                <span>10 à 50 personnes</span>
+                <svg class="check-icon hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="custom-option" data-value="50-200">
+                <span>50 à 200 personnes</span>
+                <svg class="check-icon hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="custom-option" data-value="200+">
+                <span>Plus de 200 personnes</span>
+                <svg class="check-icon hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="teamSize" name="teamSize" value="">
+        </div>
+
+        <!-- Field 6: Message (Optionnel) -->
+        <div class="form-group">
+          <label for="message" class="form-label">
+            Message <span class="text-optional">(optionnel)</span>
+          </label>
+          <div class="input-wrapper input-wrapper-textarea">
+            <svg class="input-icon icon-textarea" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <textarea 
+              id="message" 
+              name="message" 
+              class="form-input form-textarea" 
+              rows="4" 
+              placeholder="Votre message..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Notification de statut / erreur -->
+        <div id="statusAlert" class="alert-box hidden"></div>
+
+        <!-- Bouton de Soumission -->
+        <button type="submit" id="submitBtn" class="btn-submit">
+          <span class="btn-text">Envoyer</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+
+      <!-- Écran de confirmation de succès -->
+      <div id="successState" class="success-card hidden">
+        <div class="success-icon-wrapper">
+          <svg class="success-check-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 class="success-title">Message envoyé !</h2>
+        <p class="success-message">
+          Merci pour votre message. Vos coordonnées ont bien été transmises à notre équipe. Vous serez recontacté dans les plus brefs délais.
+        </p>
+        <button type="button" id="resetBtn" class="btn-secondary">
+          Envoyer un autre message
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Cashless Flo. <a href="https://cashlessflo.com/fr" target="_blank" rel="noopener">cashlessflo.com</a></p>
+    </footer>
+  </div>
+
+  <!-- intl-tel-input JS & Traduction Française -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/i18n/fr/index.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

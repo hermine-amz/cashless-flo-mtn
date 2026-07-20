@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;display=swap');
+      .flo-text {
+        font-family: 'Caveat', 'Dancing Script', cursive, sans-serif;
+        font-size: 380px;
+        font-weight: 700;
+        fill: #2a7eff;
+      }
+    </style>
+  </defs>
+  <text x="50%" y="68%" text-anchor="middle" class="flo-text">flo</text>
+</svg>
