@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const successState = document.getElementById('successState');
   const resetBtn = document.getElementById('resetBtn');
 
+  const floatingBtn = document.querySelector('.floating-website-btn');
+
   // Input elements
   const fullNameInput = document.getElementById('fullName');
   const emailInput = document.getElementById('email');
@@ -237,10 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (sentSuccessfully) {
-        // Show Success UI
+        // Show Success UI & hide floating bottom button
         form.classList.add('hidden');
         document.querySelector('.hero-section').classList.add('hidden');
         successState.classList.remove('hidden');
+        if (floatingBtn) floatingBtn.classList.add('hidden');
       } else {
         showAlert('Une erreur s\'est produite lors de l\'envoi. Veuillez réessayer.', 'error');
       }
@@ -268,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.classList.remove('hidden');
     document.querySelector('.hero-section').classList.remove('hidden');
     successState.classList.add('hidden');
+    if (floatingBtn) floatingBtn.classList.remove('hidden');
     hideAlert();
     [fullNameInput, emailInput, phoneInput, companyInput].forEach(input => {
       setGroupError(input, false);
