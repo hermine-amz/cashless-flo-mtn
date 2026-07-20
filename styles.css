@@ -20,10 +20,17 @@
   --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  position: relative;
 }
 
 body {
@@ -34,8 +41,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow-x: hidden;
   padding: 24px 16px;
   -webkit-font-smoothing: antialiased;
 }
@@ -275,13 +280,16 @@ body {
 
 /* Dropdown Menu Styling */
 .iti__dropdown-content {
+  width: 100% !important;
+  max-width: 320px !important;
   border-radius: var(--radius-md) !important;
   box-shadow: 0 12px 35px -5px rgba(15, 23, 42, 0.15), 0 4px 12px -2px rgba(15, 23, 42, 0.05) !important;
   border: 1px solid #e2e8f0 !important;
   background: #ffffff !important;
-  overflow: hidden;
+  overflow: hidden !important;
   margin-top: 6px;
   font-family: var(--font-family);
+  z-index: 100 !important;
 }
 
 /* Search input styling */
@@ -309,7 +317,9 @@ body {
 
 /* Country List Styling */
 .iti__country-list {
-  max-height: 220px !important;
+  max-height: 200px !important;
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 !important;
   padding: 4px 0 !important;
   font-family: var(--font-family) !important;
@@ -674,72 +684,82 @@ body {
   text-decoration: underline;
 }
 
-/* Bouton Flottant Bas de Page (Floating Bottom Pill) */
+/* Bouton Flottant Bas de Page (Floating Circular Badge) */
 .floating-website-btn {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 90;
-  display: inline-flex;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #0f172a;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.18), 0 4px 10px -2px rgba(15, 23, 42, 0.08);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 999px;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-  color: var(--text-main);
   text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 13.5px;
-  font-weight: 600;
+  color: var(--text-main);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
+  padding: 6px;
+}
+
+.floating-btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2px;
 }
 
 .floating-btn-logo {
-  height: 20px;
+  height: 24px;
   width: auto;
+  max-width: 65px;
   object-fit: contain;
 }
 
 .floating-btn-text {
+  font-family: var(--font-heading);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-main);
   letter-spacing: -0.01em;
-}
-
-.floating-btn-icon {
-  color: var(--primary);
-  transition: transform 0.2s ease;
 }
 
 .floating-website-btn:hover {
   background: #ffffff;
-  transform: translateY(-2px);
+  transform: scale(1.08) translateY(-3px);
   border-color: var(--primary);
-  color: var(--primary);
-  box-shadow: 0 14px 30px -5px rgba(42, 126, 255, 0.22), 0 6px 12px -2px rgba(42, 126, 255, 0.1);
+  box-shadow: 0 14px 30px -5px rgba(42, 126, 255, 0.3);
 }
 
-.floating-website-btn:hover .floating-btn-icon {
-  transform: translate(2px, -2px);
+.floating-website-btn:hover .floating-btn-text {
+  color: var(--primary);
 }
 
 .floating-website-btn:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 @media (max-width: 600px) {
   .floating-website-btn {
     bottom: 16px;
     right: 16px;
-    padding: 8px 14px;
-    font-size: 12.5px;
+    width: 80px;
+    height: 80px;
   }
   
   .floating-btn-logo {
-    height: 16px;
+    height: 20px;
+  }
+  
+  .floating-btn-text {
+    font-size: 9.5px;
   }
 }
 
